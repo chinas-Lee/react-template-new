@@ -1,0 +1,98 @@
+/*文字长度超过一行隐藏*/
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+/*文字长度超过两行隐藏*/
+.text-line-two {
+  word-break: break-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.image-text-box {
+  margin: 0 auto;
+  background-color: $whiteColor;
+}
+
+/*图片遮罩*/
+.img-mask {
+  @include position(absolute, 49%, 0, 1);
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, .2));
+}
+
+/*图片上播放按钮*/
+.img-play-btn {
+  @include position(absolute, $fifty-percentage, $fifty-percentage, 2);
+  @include flex(center, center);
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+/*暂无内容*/
+.no-data {
+  @include font($sm-size, false, $hoverColor);
+  text-align: center;
+  padding: 20px 0;
+}
+
+// 容器类型
+.box-border {
+  box-sizing: border-box;
+}
+
+.box-content {
+  box-sizing: content-box;
+}
+
+.duration-0-5s {
+  animation-duration: .5s;
+}
+
+/*遮罩层*/
+.mask {
+  @include position(fixed, 0, 0, 3);
+  @include widthHeight(100%, 100%);
+  background-color: rgba(0, 0, 0, .4);
+  @include flex(center, center);
+}
+
+/*下边框点击动画*/
+.border-animate{
+  &:before{
+    content: '';
+    @include position(absolute, false, 0, 1, false, 0);
+    @include widthHeight(0, 1px);
+    transition: width 1s;
+    background-color: $mainColor;
+  }
+  &:focus-within:before{
+    width: 100%;
+  }
+}
+
+/*一像素问题*/
+.border-1px{
+  content: '';
+  @include position(absolute, 0);
+  @include widthHeight(100%, 1px);
+  background-color: $titleColor;
+  transform-origin: 50% 0;
+}
+@media only screen and (-webkit-device-pixel-ratio: 2) {
+  .border-1px:before{
+    transform: scaleY(.5);
+  }
+}
+@media only screen and (-webkit-device-pixel-ratio: 3) {
+  .border-1px:before{
+    transform: scale(.33);
+  }
+}

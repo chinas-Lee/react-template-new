@@ -1,0 +1,219 @@
+// position
+@mixin position($mode:false,$top:false,$left:false,$zIndex:2,$right:false, $bottom: false){
+  @if $mode {
+    position:$mode;
+  }
+  @if $top {
+    top:$top;
+  }
+  @if $left {
+    left:$left;
+  }
+  @if $right {
+    right:$right;
+  }
+  @if $bottom {
+    bottom:$bottom;
+  }
+  @if $mode == fixed or $mode == absolute{
+    z-index:$zIndex;
+  }
+}
+
+// flex
+@mixin flex($level:false,$vertical:false,$direction:false,$wrap:false){
+  display: flex;
+  @if $level {
+    justify-content: $level;  //主轴对齐方式
+  }
+  @if $vertical {
+    align-items: $vertical;   //副轴对齐方式
+  }
+  @if $direction {
+    flex-direction: $direction;   //水平还是垂直排列
+  }
+  @if $wrap {
+    flex-wrap:$wrap;  //是否换行
+  }
+}
+
+// btn
+@mixin default-btn($width:false,$padding:false,$borderRadius:false,$border:false,$fontSize:false,$fontWeight:false,$bgColor:false,$color:false){
+  text-align: center;
+  cursor: pointer;
+  @if $width {
+    width:$width;
+  }
+  @if $padding {
+    padding:$padding;
+  }
+  @if $borderRadius {
+    border-radius: $borderRadius;
+  }
+  @if $border {
+    border:$border;
+  }
+  @if $fontSize {
+    font-size:$fontSize;
+  }
+  @if $fontWeight {
+    font-weight:$fontWeight
+  }
+  @if $bgColor {
+    background-color: $bgColor;
+  }
+  @if $color {
+    color: $color;
+  }
+}
+
+// input
+@mixin default-input($width: false,$margin: false, $padding: false, $borderRadius: false, $color: false, $bgColor: false, $border: false) {
+  outline: none;
+  box-shadow: none;
+  @if $width {
+    width:$width;
+  }
+  @if $margin {
+    margin:$margin;
+  }
+  @if $padding {
+    padding:$padding;
+  }
+  @if $borderRadius {
+    border-radius:$borderRadius;
+  }
+  @if $color {
+    color:$color;
+  }
+  @if $bgColor {
+    background-color:$bgColor;
+  }
+  @if $border {
+    border:$border;
+  }
+}
+
+// box
+@mixin default-box($width:100%,$padding:false,$color:false,$bgColor:false,$boxShadow:false,$borderRadius:false){
+  @if $width {
+    width:$width;
+  }
+  @if $padding {
+    padding:$padding;
+  }
+  @if $color {
+    color:$color;
+  }
+  @if $bgColor {
+    background-color:$bgColor;
+  }
+  @if $borderRadius {
+    border-radius: $borderRadius;
+  }
+  @if $boxShadow {
+    box-shadow: $boxShadow;
+  }
+}
+
+// width and margin
+@mixin marginAuto($width:false, $margin: false){
+  @if $width {
+    width: $width;
+  }
+  @if $margin {
+    margin: $margin;
+  }
+}
+
+// width and height
+@mixin widthHeight($width:false,$height:false,$maxWidth: false,$maxHeight: false,$minWidth: false, $minHeight: false){
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height:$height;
+  }
+  @if $maxWidth {
+    max-width:$maxWidth;
+  }
+  @if $maxHeight {
+    max-height:$maxHeight;
+  }
+  @if $minWidth {
+    min-width:$minWidth;
+  }
+  @if $minHeight {
+    min-height:$minHeight;
+  }
+}
+
+// font
+@mixin font($size:false,$weight:false,$color:false){
+  @if $size {
+    font-size:$size;
+  }
+  @if $weight {
+    font-weight:$weight;
+  }
+  @if $color {
+    color:$color;
+  }
+}
+
+// margin and padding
+@mixin margin($margin:0,$padding:0){
+  margin:$margin;
+  padding:$padding;
+}
+
+// color and hover
+@mixin color($color:false,$colorHover:false,$bgColor:false,$bgColorHover:false){
+  @if $color {
+    color:$color;
+  }
+  @if $bgColor {
+    background: $bgColor;
+  }
+  &:hover{
+    @if $colorHover {
+      color:$colorHover;
+    }
+    @if $bgColorHover {
+      background: $bgColorHover;
+    }
+  }
+}
+
+// round
+@mixin round($width:false,$height:false,$radius:false) {
+  @if $width {
+    width: $width;
+  }
+  @if $height {
+    height:$height;
+  }
+  @if $radius {
+    border-radius: $radius;
+  }
+}
+
+// round
+@mixin boxBg($bg:false,$bgSize:false) {
+  @if $bg {
+    background: $bg;
+  }
+  @if $bgSize {
+    background-size:$bgSize;
+  }
+}
+
+// round
+@mixin lineHeight($height:false,$lineHeight:false) {
+  @if $height {
+    height:$height;
+  }
+  @if $lineHeight {
+    line-height:$lineHeight;
+  }
+}
