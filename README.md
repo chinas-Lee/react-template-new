@@ -1,2 +1,2 @@
 # react-template-new
-新版react框架
+React + Redux + Scss + ES6 + ES7 + Yarn + 多环境打包 + 路由守卫
